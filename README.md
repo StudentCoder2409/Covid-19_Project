@@ -1,4 +1,3 @@
-# Covid-19_Project
 # 🦠 COVID-19 Data Exploration (SQL Project)
 
 ## 📌 Overview
@@ -9,6 +8,7 @@ This project explores global COVID-19 data using SQL. The goal was to analyze tr
 
 ## 🛠️ Tools Used
 
+* Microsoft Excel
 * Microsoft SQL Server
 * SQL Server Management Studio (SSMS)
 
@@ -39,7 +39,7 @@ This project explores global COVID-19 data using SQL. The goal was to analyze tr
 
 Used window functions to calculate a rolling number of vaccinated individuals per country:
 
-```sql
+```
 SUM(CONVERT(INT, vac.new_vaccinations)) 
 OVER (PARTITION BY dea.location ORDER BY dea.date)
 ```
@@ -55,12 +55,26 @@ OVER (PARTITION BY dea.location ORDER BY dea.date)
 
 ---
 
+## 🚧 Work in Progress
+
+This project is still being actively refined. Current improvements in progress include:
+
+* Cleaning and standardizing data for more accurate analysis
+* Improving query structure and readability
+* Adding more advanced analytical queries
+
+Additionally, a **Tableau dashboard is currently in development** to visualize key insights from this dataset and make the analysis more interactive.
+
+---
+
 ## 🚀 What I Learned
 
 This project helped me understand how to:
 
 * Work with real-world datasets
-* Debug SQL errors and environment issues
+* Debug SQL Server Management Studio (SSMS) issues and connection errors
+* Create a working SQL environment ("sandbox") for analysis
+* Successfully import and manage data from Excel into SQL Server
 * Use advanced SQL features for analysis
 * Structure queries for readability and performance
 
@@ -68,15 +82,10 @@ This project helped me understand how to:
 
 ## 🔧 Future Improvements
 
-* Clean and format SQL scripts for readability
-* Add more advanced queries and insights
-* Connect to visualization tools like Tableau or Power BI
-* Automate data pipeline for updates
+* Further optimize queries for performance
+* Expand analysis with deeper insights
+* Complete and publish Tableau dashboard
+* Build a more automated workflow for data updates
 
 ---
 
-## 💡 Notes
-
-This project follows a hands-on learning approach, focusing on both technical SQL skills and problem-solving through debugging and iteration.
-
----
