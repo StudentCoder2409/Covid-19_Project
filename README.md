@@ -2,90 +2,107 @@
 
 ## 📌 Overview
 
-This project explores global COVID-19 data using SQL. The goal was to analyze trends in cases, deaths, and vaccinations while building strong SQL fundamentals and real-world data analysis skills.
+This project analyzes global COVID-19 data using SQL to uncover trends in infection rates, mortality, and vaccination progress.
+
+The focus of this project is to demonstrate **real-world data analysis skills**, including data cleaning, transformation, and exploratory analysis using SQL Server.
 
 ---
 
-## 🛠️ Tools Used
+## 🛠️ Tools & Technologies
 
-* Microsoft Excel
-* Microsoft SQL Server
+* Microsoft Excel (data source & preprocessing)
+* Microsoft SQL Server (data storage & querying)
 * SQL Server Management Studio (SSMS)
 
 ---
 
-## 📊 Key Concepts Practiced
+## 📊 Core Skills Demonstrated
 
-* Joins (combining multiple datasets)
+* SQL Joins (multi-table data integration)
 * Common Table Expressions (CTEs)
 * Window Functions (`OVER`, `PARTITION BY`)
 * Temporary Tables
-* Views
-* Data Aggregation and Filtering
+* View Creation for reporting
+* Data Aggregation & Filtering
+* Data Cleaning & Type Conversion
 
 ---
 
-## 🔍 Key Analysis Performed
+## 🔍 Analysis Highlights
 
-* Total cases vs total deaths
-* Infection rate compared to population
-* Countries with highest infection rates
-* Rolling vaccination totals over time
-* Percentage of population vaccinated
+* **Case Fatality Rate**
+  Calculated likelihood of death after infection across regions
+
+* **Infection Rate vs Population**
+  Identified countries with the highest percentage of population infected
+
+* **Global Trends**
+  Aggregated worldwide case and death statistics
+
+* **Vaccination Progress**
+  Tracked cumulative vaccinations using window functions
+
+* **Population Vaccination Percentage**
+  Measured vaccine rollout effectiveness over time
 
 ---
 
-## 🧠 Example Insight
+## 🧠 Example (Window Function)
 
-Used window functions to calculate a rolling number of vaccinated individuals per country:
-
-```
+```sql
 SUM(CONVERT(INT, vac.new_vaccinations)) 
 OVER (PARTITION BY dea.location ORDER BY dea.date)
 ```
+
+This calculates a **running total of vaccinations per country**, enabling time-series analysis of vaccine distribution.
 
 ---
 
 ## 📁 Project Structure
 
-* `CovidDeaths` table
-* `CovidVaccinations` table
+* `CovidDeaths` — case, death, and population data
+* `CovidVaccinations` — vaccination data
 * SQL queries for analysis
-* View: `PercentPopulationVaccinated`
+* View: `PercentPopulationVaccinated` (for BI tools like Tableau)
+
+---
+
+## 📈 Key Insights
+
+* Infection rates varied significantly across countries, with some exceeding **~9% of total population**
+* Death rates were not uniform, indicating differences in healthcare response and reporting
+* Vaccination rollouts showed **clear upward trends over time**, with large variance between countries
+* Window functions provided an efficient way to analyze cumulative metrics without subqueries
 
 ---
 
 ## 🚧 Work in Progress
 
-This project is still being actively refined. Current improvements in progress include:
+This project is actively being improved:
 
-* Cleaning and standardizing data for more accurate analysis
-* Improving query structure and readability
-* Adding more advanced analytical queries
+* Refining data cleaning for higher accuracy
+* Improving query structure and performance
+* Expanding analysis with deeper insights
 
-Additionally, a **Tableau dashboard is currently in development** to visualize key insights from this dataset and make the analysis more interactive.
+📊 A **Tableau dashboard is currently in development** to visualize key findings and enhance interactivity.
 
 ---
 
 ## 🚀 What I Learned
 
-This project helped me understand how to:
-
-* Work with real-world datasets
-* Debug SQL Server Management Studio (SSMS) issues and connection errors
-* Create a working SQL environment ("sandbox") for analysis
-* Successfully import and manage data from Excel into SQL Server
-* Use advanced SQL features for analysis
-* Structure queries for readability and performance
+* How to work with real-world, imperfect datasets
+* Debugging and managing SQL Server environments (SSMS)
+* Importing and structuring data from Excel into SQL
+* Writing scalable, readable, and analytical SQL queries
+* Applying SQL to solve real business-style problems
 
 ---
 
 ## 🔧 Future Improvements
 
-* Further optimize queries for performance
-* Expand analysis with deeper insights
-* Complete and publish Tableau dashboard
-* Build a more automated workflow for data updates
+* Optimize queries for performance and scalability
+* Add advanced analytical queries (trend analysis, comparisons)
+* Publish Tableau dashboard
+* Automate data pipeline for updates
 
 ---
-
