@@ -1,108 +1,117 @@
-# 🦠 COVID-19 Data Exploration (SQL Project)
-
-## 📌 Overview
-
-This project analyzes global COVID-19 data using SQL to uncover trends in infection rates, mortality, and vaccination progress.
-
-The focus of this project is to demonstrate **real-world data analysis skills**, including data cleaning, transformation, and exploratory analysis using SQL Server.
+# 🦠 COVID-19 Data Analysis: Global Trends, Mortality, and Vaccination Insights
 
 ---
 
-## 🛠️ Tools & Technologies
-
-* Microsoft Excel (data source & preprocessing)
-* Microsoft SQL Server (data storage & querying)
-* SQL Server Management Studio (SSMS)
+## 🔍 Objective
+This project analyzes global COVID-19 data to uncover trends in infection rates, mortality, and vaccination progress. The goal is to transform raw datasets into actionable insights that support data-driven decision-making and resource allocation.
 
 ---
 
-## 📊 Core Skills Demonstrated
-
-* SQL Joins (multi-table data integration)
-* Common Table Expressions (CTEs)
-* Window Functions (`OVER`, `PARTITION BY`)
-* Temporary Tables
-* View Creation for reporting
-* Data Aggregation & Filtering
-* Data Cleaning & Type Conversion
-
----
-
-## 🔍 Analysis Highlights
-
-* **Case Fatality Rate**
-  Calculated likelihood of death after infection across regions
-
-* **Infection Rate vs Population**
-  Identified countries with the highest percentage of population infected
-
-* **Global Trends**
-  Aggregated worldwide case and death statistics
-
-* **Vaccination Progress**
-  Tracked cumulative vaccinations using window functions
-
-* **Population Vaccination Percentage**
-  Measured vaccine rollout effectiveness over time
+## 📊 Dataset
+- Global COVID-19 dataset including:
+  - Case counts (total & new cases)  
+  - Death counts  
+  - Population data  
+  - Vaccination data  
+- Data spans multiple countries and time periods  
+- Source tables:
+  - `CovidDeaths`
+  - `CovidVaccinations`
 
 ---
 
-## 🧠 Example (Window Function)
-
-```sql
-SUM(CONVERT(INT, vac.new_vaccinations)) 
-OVER (PARTITION BY dea.location ORDER BY dea.date)
-```
-
-This calculates a **running total of vaccinations per country**, enabling time-series analysis of vaccine distribution.
-
----
-
-## 📁 Project Structure
-
-* `CovidDeaths` — case, death, and population data
-* `CovidVaccinations` — vaccination data
-* SQL queries for analysis
-* View: `PercentPopulationVaccinated` (for BI tools like Tableau)
+## 🛠 Tools & Technologies
+- **SQL (SQL Server)**  
+  - Joins  
+  - Aggregations  
+  - Window Functions  
+  - CTEs  
+  - Temporary Tables  
+  - Views  
+- **Excel** (supporting analysis)  
+- **Tableau / Power BI** (for dashboard integration via views)
 
 ---
 
-## 📈 Key Insights
-
-* Infection rates varied significantly across countries, with some exceeding **~9% of total population**
-* Death rates were not uniform, indicating differences in healthcare response and reporting
-* Vaccination rollouts showed **clear upward trends over time**, with large variance between countries
-* Window functions provided an efficient way to analyze cumulative metrics without subqueries
-
----
-
-## 🚧 Work in Progress
-
-This project is actively being improved:
-
-* Refining data cleaning for higher accuracy
-* Improving query structure and performance
-* Expanding analysis with deeper insights
-
-📊 A **Tableau dashboard is currently in development** to visualize key findings and enhance interactivity.
+## 🧹 Data Cleaning & Preparation
+- Removed aggregate rows (e.g., global totals, income groups) to focus on country-level analysis  
+- Filtered relevant columns for clarity and consistency  
+- Standardized data types for accurate calculations  
+- Prepared datasets for time-series and comparative analysis  
 
 ---
 
-## 🚀 What I Learned
+## 📈 Analysis Performed
 
-* How to work with real-world, imperfect datasets
-* Debugging and managing SQL Server environments (SSMS)
-* Importing and structuring data from Excel into SQL
-* Writing scalable, readable, and analytical SQL queries
-* Applying SQL to solve real business-style problems
+### 1. Case Fatality Analysis
+- Calculated the likelihood of death after infection  
+- Derived **death percentage** per country over time  
+
+### 2. Infection Rate vs Population
+- Measured percentage of population infected  
+- Compared infection penetration across regions  
+
+### 3. Country-Level Infection Trends
+- Identified countries with the highest infection rates  
+- Example: The United States reached ~9.77% infection rate  
+
+### 4. Global Infection Comparison
+- Ranked countries by infection percentage  
+- Highlighted regions with the most widespread outbreaks  
+
+### 5. Death Count by Continent
+- Aggregated total deaths by continent  
+- Identified regions with the highest mortality impact  
+
+### 6. Global Metrics
+- Calculated global case totals and death percentages  
+- Provided a high-level overview of pandemic severity  
+
+### 7. Vaccination Progress Analysis
+- Used **window functions** to calculate rolling vaccination totals  
+- Tracked vaccination progress over time by country  
+
+### 8. Population vs Vaccination (CTE)
+- Built a **CTE** to calculate the percentage of the population vaccinated  
+- Enabled time-series vaccination tracking  
+
+### 9. Advanced SQL Techniques
+- Implemented:
+  - Window functions (`PARTITION BY`)  
+  - Common Table Expressions (CTEs)  
+  - Temporary tables  
+  - Views for BI tools  
 
 ---
 
-## 🔧 Future Improvements
-
-* Optimize queries for performance and scalability
-* Add advanced analytical queries (trend analysis, comparisons)
-* Publish Tableau dashboard
-* Automate data pipeline for updates
+## 🔑 Key Insights
+- Significant variation exists in infection and mortality rates across regions  
+- Certain countries experienced disproportionately high infection penetration  
+- Vaccination rollout speed varied widely between countries  
+- Trends indicate multiple waves of infection over time  
+- Data highlights regions that may require increased healthcare resources  
 
 ---
+
+## 💡 Business Impact
+- Enables **data-driven decision-making** for public health strategies  
+- Supports **resource allocation planning** for high-risk regions  
+- Demonstrates ability to transform raw data into **actionable insights**  
+- Provides a scalable dataset for **dashboarding and reporting tools**  
+
+---
+
+## 📊 Data Modeling for Visualization
+- Created SQL **views** for integration with Tableau / Power BI  
+- Structured data to support dashboard development and reporting  
+
+---
+
+## 🚀 Skills Demonstrated
+- Data cleaning and preprocessing  
+- SQL querying (joins, aggregations, filtering)  
+- Window functions and advanced SQL techniques  
+- Exploratory data analysis (EDA)  
+- Trend and time-series analysis  
+- Data modeling for BI tools  
+- Data storytelling and insight generation  
